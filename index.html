@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>30 000</title>
+    <style>
+    p {
+        display: inline-block;
+        margin: 0 8px;
+    }
+
+    .invisible {
+        display: none;
+    }
+
+    .bleu {
+        color: blue;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .green {
+        color: green;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="trentemille-container"></div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var trentemilleContainerElement = document.getElementById("trentemille-container");
+
+        for (let i = 0; i < 300; i++) {
+            let trentemilleElement = document.createElement('p');
+            trentemilleElement.innerHTML = '30 000';
+
+            trentemilleContainerElement.appendChild(trentemilleElement);
+        }
+
+        colorClasses = ['bleu', 'red', 'green'];
+        let i = 0;
+        window.setInterval(function() {
+            trentemilleContainerElement.classList.remove(...trentemilleContainerElement.classList);
+
+            trentemilleContainerElement.classList.add(colorClasses[i++ % colorClasses.length]);
+
+            trentemilleContainerElement.style.fontSize = Math.round(8+32*Math.random()) + "px";
+        }, 1000);
+    });
+    </script>
+</body>
+
+</html>
